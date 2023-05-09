@@ -13,3 +13,8 @@ This is the entry point of this phase of the project. Its an interpreter built o
 python3 console.py
 ./console.py
 ```
+
+### How to Stop the console
+```
+(hbnb) quit
+```
