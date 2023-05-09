@@ -34,3 +34,6 @@ Type help to see the list of commands and how to use them.
 - User
 - Place
 ## Authors
+
+- [Enobong Edo](https://github.com/EnobongEdo)
+- [Mildred Nwonye](https://github.com/MildredJessica)
