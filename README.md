@@ -7,3 +7,9 @@ The AirBnb Clone is the major project in the ALX SE programme. It starts out wit
 
 ## console
 This is the entry point of this phase of the project. Its an interpreter built on top of the python cmd module to provide an interactive experience with the project
+
+### How to Start the console
+```
+python3 console.py
+./console.py
+```
