@@ -20,3 +20,12 @@ python3 console.py
 ```
 ### How to use
 Type help to see the list of commands and how to use them.
+
+### Examples
+Omena Egbusiri22:01
+```
+(hbnb) help
+(hbnb) all
+(hbnb) all User
+(hbnb) create City
+```
