@@ -18,3 +18,5 @@ python3 console.py
 ```
 (hbnb) quit
 ```
+### How to use
+Type help to see the list of commands and how to use them.
