@@ -41,3 +41,5 @@ Type help to see the list of commands and how to use them.
 
 We are using GitHub to collaborate on this project. To contribute to the project, please create a new branch for your changes and submit a pull request. We will review your changes and merge them into the main branch if they are approved.
 ## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
