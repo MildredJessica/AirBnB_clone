@@ -4,6 +4,7 @@ A BaseModel class that defines all common attributes/methods for other classes
 """
 from datetime import datetime
 import uuid
+import models
 
 
 class BaseModel:
@@ -27,6 +28,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new()
 
     def __str__(self):
         """
@@ -42,6 +44,7 @@ class BaseModel:
             updated_at with the current datetime
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
@@ -49,7 +52,7 @@ class BaseModel:
             keys/values of __dict__ of the instance
         """
         baseDict = dict(self.__dict__)
-        baseDict["__class__"] = self.__class__.__name__
-        baseDict["created_at"] = self.created_at.isoformat()
+        baseDict["__class__"] = self.__class__.__name__ 
         baseDict["updated_at"] = self.updated_at.isoformat()
+        baseDict["created_at"] = self.created_at.isoformat()
         return baseDict
