@@ -14,13 +14,13 @@ class BaseModel:
         """Initialises the Basemodel class"""
         if kwargs:
             for key, value in kwargs.items():
-                if key == "created_at":
+                if "created_at" == key:
                     self.created_at = datetime.strptime(kwargs["created_at"],
                                                         "%Y-%m-%dT%H:%M:%S.%f")
-                elif key == "updated_at":
+                elif "updated_at" == key:
                     self.created_at = datetime.strptime(kwargs["updated_at"],
                                                         "%Y-%m-%dT%H:%M:%S.%f")
-                elif key == "__class__":
+                elif "__class__" == key:
                     pass
                 else:
                     setattr(self, key, value)
@@ -28,7 +28,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new()
+            models.storage.new(self)
 
     def __str__(self):
         """
@@ -51,8 +51,11 @@ class BaseModel:
             Returns a dictionary containing all
             keys/values of __dict__ of the instance
         """
-        baseDict = dict(self.__dict__)
-        baseDict["__class__"] = self.__class__.__name__ 
-        baseDict["updated_at"] = self.updated_at.isoformat()
-        baseDict["created_at"] = self.created_at.isoformat()
+        baseDict = {}
+        baseDict["_class__"] = self.__class__.__name__
+        for key, value in self.__dict__.items():
+            if isinstance(value, (datetime, )):
+                baseDict[key] = value.isoformat()
+            else:
+                baseDict[key] = value
         return baseDict

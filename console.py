@@ -9,7 +9,7 @@ class HBNBCommand(cmd.Cmd):
     """
     intro = 'Welcome to the HBNB shell.   Type help or ? to list commands.\n'
     prompt = '(hbnb) '
-    
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         # raise ExitCmdException()
@@ -18,6 +18,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """Exit with Ctrl-D"""
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
