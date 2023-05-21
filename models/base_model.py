@@ -38,6 +38,12 @@ class BaseModel:
         return ("[{}] ({}) {}".format(
                 self.__class__.__name__, self.id, self.__dict__))
 
+    def __repr__(self):
+        """
+        returns string representation
+        """
+        return (self.__str__())
+
     def save(self):
         """
             Updates the public instance attribute
@@ -52,7 +58,7 @@ class BaseModel:
             keys/values of __dict__ of the instance
         """
         baseDict = {}
-        baseDict["_class__"] = self.__class__.__name__
+        baseDict["__class__"] = self.__class__.__name__
         for key, value in self.__dict__.items():
             if isinstance(value, (datetime, )):
                 baseDict[key] = value.isoformat()

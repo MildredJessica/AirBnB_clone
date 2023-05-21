@@ -2,7 +2,7 @@
 
 import unittest
 import pep8
-from os import remove
+from os import path, remove
 from models.base_model import BaseModel
 
 
@@ -11,14 +11,17 @@ class TestBaseModel(unittest.TestCase):
         Testing the Base Model class
     """
 
+    @classmethod
     def setup(self):
         """Setup the class"""
         pass
 
+    @classmethod
     def tearDown(self):
         """Cleanup each class"""
         try:
-            remove('file.json')
+            if path.exists("file.json"):
+                remove('file.json')
         except FileNotFoundError:
             pass
 
@@ -33,3 +36,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.__init__)
         self.assertIsNotNone(BaseModel.save.__doc__)
+
+
+if __name__ == "__main__":
+    unittest.main()
